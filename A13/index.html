@@ -30,12 +30,13 @@
 
 <style>
     .drip {
-        width: 100px;
-        height: 400px;
+        width: 300px;
+        height: 300px;
         display: flex;
         flex-direction: column;
         justify-content: space-between;
         position: relative;
+        filter: url("#drip");
     }
 
     .bar {
@@ -54,6 +55,7 @@
         transform: translateX(-50%);
         background: #fff;
         animation: drip 4s infinite ease-in-out;
+        border-radius: 50%;
     }
 
     @keyframes drip {

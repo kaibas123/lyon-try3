@@ -73,6 +73,7 @@ p, h1, h2, h3, h4, h5 {
     align-items: center;
     padding: 20vh 0;
     position: relative;
+    background: #000;
 }
 
 .screen .container {
