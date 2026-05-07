@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="zxx">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+  <link rel="stylesheet" href="bootstrap.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="screen jcc gap">
+        <canvas id="frac" width="700" height="700" style="background: #fff"></canvas>
+
+        <div class="col-flex">
+            <label for="count">Triangle count</label>
+            <input type="number" id="count" placeholder="Enter triangle count">
+        </div>
+
+        <button class="btn btn-primary" onclick="drawing()">Draw</button>
+    </div>
+</body>
+</html>
+
+<script>
+    let max = 0;
+    let canvas = document.querySelector("#frac");
+    let ctx = canvas.getContext("2d");
+
+    function drawing() {
+        ctx.clearRect(0, 0, 700, 700);
+
+        max = document.querySelector("#count").value * 1;
+
+        ctx.fillStyle = "#000";
+
+        ctx.beginPath();
+            ctx.moveTo(0, 700);
+            ctx.lineTo(350, 0);
+            ctx.lineTo(700, 700);
+            ctx.fill();
+        ctx.closePath();
+
+        drawTriangle(350, 700, 350, 1);
+    }
+
+    function drawTriangle(x, y, h, i) {
+        if (i > max) return false;
+
+        ctx.fillStyle = "#fff";
+
+        ctx.beginPath();
+            ctx.moveTo(x, y);
+            ctx.lineTo(x - h/2, y - h);
+            ctx.lineTo(x + h/2, y - h);
+            ctx.fill();
+        ctx.closePath();
+
+        drawTriangle(x - h/2, y, h/2, i+1);
+        drawTriangle(x + h/2, y, h/2, i+1);
+        drawTriangle(x, y-h, h/2, i+1);
+    }
+</script>
