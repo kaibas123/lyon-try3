@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="zxx">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+  <link rel="stylesheet" href="bootstrap.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="screen">
+        <div class="container jcc aic">
+            <div class="chart border">
+                <div class="bar" style="--color: tomato; --delay: 0s; --height: 100%"></div>
+                <div class="bar" style="--color: cornflowerblue; --delay: .2s; --height: 40%"></div>
+                <div class="bar" style="--color: yellowgreen; --delay: .4s; --height: 70%"></div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+
+<style>
+    .chart {
+        width: 400px;
+        height: 400px;
+        display: flex;
+        justify-content: space-between;
+        padding: 2rem;
+        align-items: end;
+        cursor: pointer;
+    }
+
+    .chart .bar {
+        width: 4rem;
+        height: 0;
+        background: var(--color);
+        transition: .3s var(--delay);
+    }
+
+    .chart:hover .bar {
+        height: var(--height);
+    }
+</style>
