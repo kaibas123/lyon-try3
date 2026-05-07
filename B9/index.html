@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Image Compare</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div>
+        <input type="text" id="split" name="split" style="left: 250px;">
+        <img src="before.jpg" id="before" alt="before-image" title="before-image">
+        <img src="after.jpg" id="after" alt="after-image" title="after-image">
+    </div>
+</body>
+</html>
+
+<script>
+    let move = false;
+
+    function eventFunction(e) {
+        let $div = document.querySelector("div");
+        let $input = document.querySelector("input");
+        let $before = document.querySelector("#before");
+        let bound = $div.getBoundingClientRect();
+
+        if (e.type === "mousedown" && !move) {
+            move = true;
+        } else if (e.type === "mousemove" && move) {
+            let x = e.clientX - bound.left;
+
+            $input.style.left = x + "px";
+            $before.style.width = x + "px";
+            $div.style.cursor = "ew-resize";
+
+            move = true;
+        } else if (move) {
+            $div.style.cursor = "default";
+            move = false;
+        }
+    }
+
+    document.querySelector("div").addEventListener("mousedown", eventFunction)
+    document.querySelector("div").addEventListener("mouseup", eventFunction)
+    document.querySelector("div").addEventListener("mouseleave", eventFunction)
+    document.querySelector("div").addEventListener("mousemove", eventFunction)
+</script>
