@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="zxx">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+  <link rel="stylesheet" href="bootstrap.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="screen">
+        <div class="container">
+            <form action="compress.php" method="POST" enctype="multipart/form-data">
+                <label for="file">Select File</label>
+                <input type="file" accept="application/zip" webkitdirectory class="form-control" id="file" name="file">
+
+                <button>Compress</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
