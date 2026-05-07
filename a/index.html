@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="zxx">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+  <link rel="stylesheet" href="bootstrap.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="screen jcc">
+        <div class="drip">
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="circle"></div>
+        </div>
+
+        <svg class="dn">
+            <defs>
+                <filter id="drip">
+                    <feGaussianBlur stdDeviation="10" />
+                    <feColorMatrix values="1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 20 -7" />
+                </filter>
+            </defs>
+        </svg>
+    </div>
+</body>
+</html>
+
+<style>
+    .drip {
+        width: 100px;
+        height: 400px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        position: relative;
+    }
+
+    .bar {
+        width: 100%;
+        height: 2rem;
+        border-radius: 50px;
+        background: #fff;
+    }
+
+    .circle {
+        width: 2rem;
+        height: 2rem;
+        position: absolute;
+        top: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        background: #fff;
+        animation: drip 4s infinite ease-in-out;
+    }
+
+    @keyframes drip {
+        0% {
+            top: 0;}
+        100% {
+            top: calc(100% - 2rem);}
+    }
+</style>
